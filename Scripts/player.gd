@@ -4,7 +4,8 @@ extends CharacterBody2D
 const SPEED = 150.0
 const JUMP_VELOCITY = -250.0
 
-@onready var game_manager: Node = %GameManager
+@onready var game_manager: Node = get_node("/root/Game/GameManager")
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var double_right: AnimatedSprite2D = $AnimatedSprite2D/Double_Right
@@ -36,6 +37,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor() and game_manager.game_running:
 		velocity.y = JUMP_VELOCITY
+		audio.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

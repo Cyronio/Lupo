@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkwomqomiosi0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fhe3q"]
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[node name="Level5" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -119.0
+offset_top = -24.0
+offset_right = 110.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "That's all!
+Thank you for playing, Tanita!"
+label_settings = SubResource("LabelSettings_fhe3q")
+horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)

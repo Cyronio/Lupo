@@ -1,0 +1,105 @@
+[gd_scene load_steps=11 format=3 uid="uid://co3gg0m5uc852"]
+
+[ext_resource type="Texture2D" uid="uid://csia2lhdqbs5m" path="res://Assets/Graphics/Lupo/TitleScreen.png" id="1_8ryqv"]
+[ext_resource type="Texture2D" uid="uid://dp3rgacjwxdtp" path="res://Assets/Graphics/Lupo/LupoRun.png" id="2_31js7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pspvu"]
+atlas = ExtResource("2_31js7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuqrd"]
+atlas = ExtResource("2_31js7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxla4"]
+atlas = ExtResource("2_31js7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ibbt5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pspvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuqrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxla4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_ughle"]
+resource_name = "move"
+
+[sub_resource type="Animation" id="Animation_hsdmu"]
+resource_name = "new_animation"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, -1), Vector2(304, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_488qb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oihvb"]
+_data = {
+&"RESET": SubResource("Animation_488qb"),
+&"move": SubResource("Animation_ughle"),
+&"new_animation": SubResource("Animation_hsdmu")
+}
+
+[node name="Level0" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8ryqv")
+
+[node name="MenuButton" type="MenuButton" parent="."]
+offset_left = -47.0
+offset_top = 4.0
+offset_right = 49.0
+offset_bottom = 35.0
+text = "Start Game"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-1, -1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(-152, 55)
+sprite_frames = SubResource("SpriteFrames_ibbt5")
+autoplay = "default"
+frame = 2
+frame_progress = 0.227071
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+root_node = NodePath("../AnimatedSprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_oihvb")
+}
