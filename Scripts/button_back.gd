@@ -1,4 +1,4 @@
-extends MenuButton
+extends Button
 
 @onready var game_manager: Node = get_node("/root/Game/GameManager")
 # Called when the node enters the scene tree for the first time.
@@ -13,4 +13,4 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	game_manager.level_cleared()
+	game_manager.reload_game()

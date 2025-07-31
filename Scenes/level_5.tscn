@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkwomqomiosi0"]
+[gd_scene load_steps=3 format=3 uid="uid://bkwomqomiosi0"]
+
+[ext_resource type="Script" uid="uid://bc1wiin53wqkl" path="res://Scripts/button_back.gd" id="1_wb8gp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fhe3q"]
 font_size = 14
@@ -7,16 +9,40 @@ font_color = Color(0, 0, 0, 1)
 [node name="Level5" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
-offset_left = -119.0
-offset_top = -24.0
-offset_right = 110.0
-offset_bottom = 25.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.5
+offset_top = -24.5
+offset_right = 114.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "That's all!
-Thank you for playing, Tanita!"
+Thank you for playing!"
 label_settings = SubResource("LabelSettings_fhe3q")
 horizontal_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="Button_Back" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = 27.0
+offset_right = 52.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back to Title"
+script = ExtResource("1_wb8gp")
+
+[connection signal="pressed" from="Button_Back" to="Button_Back" method="_on_pressed"]

@@ -26,3 +26,13 @@ func _on_cleared_timer_timeout() -> void:
 	get_node("/root/Game").add_child(instance)
 	get_node("/root/Game/Level" + str(level_count-1)).queue_free()
 	cleared_timer.wait_time = 1.0
+	
+func reload_game():
+	audio.play()
+	print("Game restarted")
+	var next_level = load("res://Scenes/level_0.tscn")
+	var instance = next_level.instantiate()
+	get_node("/root/Game").add_child(instance)
+	get_node("/root/Game/Level" + str(level_count)).queue_free()
+	level_count = 0
+	

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 150.0
+const SPEED = 130.0
 const JUMP_VELOCITY = -250.0
 
 @onready var game_manager: Node = get_node("/root/Game/GameManager")

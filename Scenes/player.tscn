@@ -77,7 +77,7 @@ stream = ExtResource("1_vgqql")
 sprite_frames = SubResource("SpriteFrames_h4iuc")
 animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.487674
+frame_progress = 0.245019
 
 [node name="Double_Right" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 position = Vector2(288, 0)
