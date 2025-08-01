@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1oxh56cq51a"]
+[gd_scene load_steps=6 format=3 uid="uid://d1oxh56cq51a"]
 
 [ext_resource type="Script" uid="uid://bnxfisf7mq2au" path="res://Scripts/game_manager.gd" id="1_i6g32"]
+[ext_resource type="PackedScene" uid="uid://cn51qpjy8jxy6" path="res://Scenes/maske.tscn" id="1_wowpa"]
 [ext_resource type="AudioStream" uid="uid://cktd4w4scj6ip" path="res://Assets/Sound/Boom43.wav" id="2_3dryh"]
 [ext_resource type="Texture2D" uid="uid://d4dvclik7anic" path="res://Assets/Graphics/Lupo/Desert.png" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://co3gg0m5uc852" path="res://Scenes/level_0.tscn" id="4_3dryh"]
 
 [node name="Game" type="Node2D"]
+
+[node name="Maske" parent="." instance=ExtResource("1_wowpa")]
+z_index = 10
+position = Vector2(26, 1)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true

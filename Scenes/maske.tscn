@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn51qpjy8jxy6"]
+
+[ext_resource type="Texture2D" uid="uid://ck4vf1rn68wsw" path="res://Assets/Graphics/Lupo/Maske_Neu.png" id="1_ne0fr"]
+
+[node name="Maske" type="Sprite2D"]
+texture = ExtResource("1_ne0fr")
