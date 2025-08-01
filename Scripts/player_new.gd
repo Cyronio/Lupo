@@ -7,6 +7,8 @@ const JUMP_VELOCITY = -250.0
 
 @onready var game_manager: Node = get_node("/root/Game/GameManager")
 
+@onready var mask: Node = get_node("/root/Game/Maske")
+
 @onready var coyote_timer: Timer = $CoyoteTimer
 
 
@@ -41,13 +43,17 @@ func _physics_process(delta: float) -> void:
 		
 	if position.x > 144 or position.x < -144:
 		camera.position.x = 288
+		mask.position.x = 314
 	else: 
 		camera.position.x = 0
+		mask.position.x = 26
 	
 	if position.y > 81 or position.y < -81:
 		camera.position.y = -161
+		mask.position.y = -160
 	else:
 		camera.position.y = -1
+		mask.position.y = 1
 	
 	if can_jump == false and is_on_floor():
 		can_jump = true

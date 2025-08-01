@@ -7,8 +7,14 @@ var level_count = 0
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 @onready var hit_timer: Timer = $Hit_Timer
 
+@onready var mask: Node = get_node("/root/Game/Maske")
+
 @onready var cleared_timer: Timer = $Cleared_Timer
 
+func reset_mask():
+	mask.position.x = 26
+	mask.position.y = 1
+	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("next"):
 		next_level()
@@ -29,6 +35,7 @@ func next_level():
 	var instance = next_level.instantiate()
 	get_node("/root/Game").add_child(instance)
 	get_node("/root/Game/Level" + str(level_count-1)).queue_free()
+	reset_mask()
 	
 func reload_level():
 	var current_level = get_node("/root/Game/Level" + str(level_count))
@@ -39,6 +46,7 @@ func reload_level():
 	instance.name = "Level" + str(level_count)
 	get_node("/root/Game").add_child(instance)
 	game_running = true
+	reset_mask()
 	
 	
 	
@@ -57,6 +65,7 @@ func _on_cleared_timer_timeout() -> void:
 	get_node("/root/Game").add_child(instance)
 	get_node("/root/Game/Level" + str(level_count-1)).queue_free()
 	cleared_timer.wait_time = 1.0
+	reset_mask()
 	
 func reload_game():
 	audio.play()
@@ -66,6 +75,7 @@ func reload_game():
 	get_node("/root/Game").add_child(instance)
 	get_node("/root/Game/EndScreen").queue_free()
 	level_count = 0
+	reset_mask()
 	
 func player_hit():
 	game_running = false
