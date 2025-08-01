@@ -27,6 +27,7 @@ sources/0 = SubResource("TileSetAtlasSource_6444e")
 [node name="Level1" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -1)
 zoom = Vector2(4, 4)
 
 [node name="Player" parent="." instance=ExtResource("1_6444e")]

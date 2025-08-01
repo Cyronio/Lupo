@@ -1,10 +1,17 @@
 extends Node
 
+const MAX_LEVEL = 8
+
 var game_running = true
 var level_count = 0
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+@onready var hit_timer: Timer = $Hit_Timer
 
 @onready var cleared_timer: Timer = $Cleared_Timer
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("next"):
+		next_level()
 
 func level_cleared():
 	audio.play()
@@ -12,16 +19,40 @@ func level_cleared():
 	game_running = false
 	cleared_timer.start()
 	
+func next_level():
+	level_count += 1
+	var next_level
+	if level_count > MAX_LEVEL:
+		next_level = load("res://Scenes/EndScreen.tscn")
+	else:
+		next_level = load("res://Scenes/level_" + str(level_count) + ".tscn")
+	var instance = next_level.instantiate()
+	get_node("/root/Game").add_child(instance)
+	get_node("/root/Game/Level" + str(level_count-1)).queue_free()
 	
-
-
+func reload_level():
+	var current_level = get_node("/root/Game/Level" + str(level_count))
+	current_level.queue_free()
+	await current_level.tree_exited
+	var next_level = load("res://Scenes/level_" + str(level_count) + ".tscn")
+	var instance = next_level.instantiate()
+	instance.name = "Level" + str(level_count)
+	get_node("/root/Game").add_child(instance)
+	game_running = true
+	
+	
+	
 func _on_cleared_timer_timeout() -> void:
 	cleared_timer.stop()
 	game_running = true
 	#get_tree().reload_current_scene()
 	#pick_up.play()
 	level_count += 1
-	var next_level = load("res://Scenes/level_" + str(level_count) + ".tscn")
+	var next_level
+	if level_count > MAX_LEVEL:
+		next_level = load("res://Scenes/EndScreen.tscn")
+	else:
+		next_level = load("res://Scenes/level_" + str(level_count) + ".tscn")
 	var instance = next_level.instantiate()
 	get_node("/root/Game").add_child(instance)
 	get_node("/root/Game/Level" + str(level_count-1)).queue_free()
@@ -33,6 +64,16 @@ func reload_game():
 	var next_level = load("res://Scenes/level_0.tscn")
 	var instance = next_level.instantiate()
 	get_node("/root/Game").add_child(instance)
-	get_node("/root/Game/Level" + str(level_count)).queue_free()
+	get_node("/root/Game/EndScreen").queue_free()
 	level_count = 0
 	
+func player_hit():
+	game_running = false
+	hit_timer.start()
+	
+	
+
+
+func _on_hit_timer_timeout() -> void:
+	hit_timer.stop()
+	reload_level()

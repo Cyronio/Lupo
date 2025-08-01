@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvvig2o6cfs20"
-path="res://.godot/imported/Food.png-57d1587aa0efe68ec8498c68c06e2f81.ctex"
+uid="uid://cksty2fniw1iy"
+path="res://.godot/imported/Rock.png-8776d4057f6e7f242bcc7517abf3cd11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Graphics/Lupo/Food.png"
-dest_files=["res://.godot/imported/Food.png-57d1587aa0efe68ec8498c68c06e2f81.ctex"]
+source_file="res://Assets/Graphics/Lupo/Rock.png"
+dest_files=["res://.godot/imported/Rock.png-8776d4057f6e7f242bcc7517abf3cd11.ctex"]
 
 [params]
 

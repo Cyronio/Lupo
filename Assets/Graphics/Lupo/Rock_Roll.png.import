@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br7lkjer2biy6"
-path="res://.godot/imported/chunk.png-e930aa1145621a0b7765c46081df3bca.ctex"
+uid="uid://bcop7yryq2hc0"
+path="res://.godot/imported/Rock_Roll.png-cead644921e21e503d4a9f71a2569620.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Graphics/Lupo/chunk.png"
-dest_files=["res://.godot/imported/chunk.png-e930aa1145621a0b7765c46081df3bca.ctex"]
+source_file="res://Assets/Graphics/Lupo/Rock_Roll.png"
+dest_files=["res://.godot/imported/Rock_Roll.png-cead644921e21e503d4a9f71a2569620.ctex"]
 
 [params]
 

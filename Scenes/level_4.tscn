@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://2ih86el6wf3t" path="res://Scenes/meat.tscn" id="4_5a8oa"]
 [ext_resource type="Script" uid="uid://dh1yyily3rx3k" path="res://Scripts/meat.gd" id="5_3ntyy"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7huqf"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f6i20"]
 texture = ExtResource("3_wk15n")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -22,11 +22,12 @@ texture = ExtResource("3_wk15n")
 
 [sub_resource type="TileSet" id="TileSet_di0d6"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_7huqf")
+sources/0 = SubResource("TileSetAtlasSource_f6i20")
 
 [node name="Level4" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -1)
 zoom = Vector2(4, 4)
 
 [node name="Player" parent="." instance=ExtResource("1_f6i20")]

@@ -16,10 +16,15 @@ script = ExtResource("1_i6g32")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameManager"]
 stream = ExtResource("2_3dryh")
 
+[node name="Hit_Timer" type="Timer" parent="GameManager"]
+wait_time = 0.5
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -2
+position = Vector2(0, -1)
 texture = ExtResource("3_wrm1d")
 
 [node name="Level0" parent="." instance=ExtResource("4_3dryh")]
 
 [connection signal="timeout" from="GameManager/Cleared_Timer" to="GameManager" method="_on_cleared_timer_timeout"]
+[connection signal="timeout" from="GameManager/Hit_Timer" to="GameManager" method="_on_hit_timer_timeout"]
