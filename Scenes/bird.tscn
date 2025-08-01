@@ -98,7 +98,7 @@ script = ExtResource("1_mcegt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vl8r2")
 autoplay = "default"
-frame_progress = 0.348952
+frame_progress = 0.126222
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
