@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dh1yyily3rx3k" path="res://Scripts/meat.gd" id="5_xfwg7"]
 [ext_resource type="PackedScene" uid="uid://dd56ixocglqxn" path="res://Scenes/bird.tscn" id="6_r8l1h"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_68k2k"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26dk1"]
 texture = ExtResource("3_02esc")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -23,7 +23,7 @@ texture = ExtResource("3_02esc")
 
 [sub_resource type="TileSet" id="TileSet_acvgl"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_68k2k")
+sources/0 = SubResource("TileSetAtlasSource_26dk1")
 
 [node name="Level5" type="Node2D"]
 

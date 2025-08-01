@@ -1,6 +1,6 @@
 extends Node
 
-const MAX_LEVEL = 8
+const MAX_LEVEL = 9
 
 var game_running = true
 var level_count = 0

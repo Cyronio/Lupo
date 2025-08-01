@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dd56ixocglqxn" path="res://Scenes/bird.tscn" id="6_2h3kh"]
 [ext_resource type="PackedScene" uid="uid://yhm5gora8mt4" path="res://Scenes/rock.tscn" id="7_3xlci"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1wp5v"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vaeam"]
 texture = ExtResource("3_ry3a7")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -24,7 +24,7 @@ texture = ExtResource("3_ry3a7")
 
 [sub_resource type="TileSet" id="TileSet_csayt"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_1wp5v")
+sources/0 = SubResource("TileSetAtlasSource_vaeam")
 
 [node name="Level8" type="Node2D"]
 

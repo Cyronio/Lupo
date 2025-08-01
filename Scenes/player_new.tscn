@@ -1,0 +1,109 @@
+[gd_scene load_steps=14 format=3 uid="uid://scukd2p4o2dt"]
+
+[ext_resource type="AudioStream" uid="uid://qcgs1xvso8jd" path="res://Assets/Sound/Jump14.wav" id="1_lv4l8"]
+[ext_resource type="Script" uid="uid://ratjxilkg28l" path="res://Scripts/player_new.gd" id="1_xgpek"]
+[ext_resource type="Texture2D" uid="uid://daw4lv53hl8v0" path="res://Assets/Graphics/Lupo/Lupo.png" id="2_xgpek"]
+[ext_resource type="Texture2D" uid="uid://5i2q67kjc7be" path="res://Assets/Graphics/Lupo/LupoJump.png" id="3_kujci"]
+[ext_resource type="Texture2D" uid="uid://dp3rgacjwxdtp" path="res://Assets/Graphics/Lupo/LupoRun.png" id="4_kr0wr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("2_xgpek")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkybt"]
+atlas = ExtResource("2_xgpek")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ek2"]
+atlas = ExtResource("3_kujci")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
+atlas = ExtResource("4_kr0wr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("4_kr0wr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
+atlas = ExtResource("4_kr0wr")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oyvj0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkybt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ek2")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3wgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8erm5")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nqphc"]
+radius = 6.0
+
+[node name="PlayerNew" type="CharacterBody2D"]
+script = ExtResource("1_xgpek")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_lv4l8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oyvj0")
+animation = &"jump"
+autoplay = "idle"
+
+[node name="Double_Right" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(576, 0)
+sprite_frames = SubResource("SpriteFrames_oyvj0")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Double_Left" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(-576, 0)
+sprite_frames = SubResource("SpriteFrames_oyvj0")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Double_Down" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 324)
+sprite_frames = SubResource("SpriteFrames_oyvj0")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Double_Up" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(0, -324)
+sprite_frames = SubResource("SpriteFrames_oyvj0")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_nqphc")
