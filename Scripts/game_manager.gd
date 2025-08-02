@@ -15,9 +15,9 @@ func reset_mask():
 	mask.position.x = 26
 	mask.position.y = 1
 	
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("next"):
-		next_level()
+#func _process(delta: float) -> void:
+	#if Input.is_action_just_pressed("next"):
+		#next_level()
 
 func level_cleared():
 	audio.play()
