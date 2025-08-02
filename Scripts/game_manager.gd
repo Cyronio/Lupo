@@ -76,7 +76,7 @@ func reload_game():
 	get_node("/root/Game/EndScreenNight").queue_free()
 	level_count = 0
 	reset_mask()
-	
+	   
 func player_hit():
 	game_running = false
 	hit_timer.start()

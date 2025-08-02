@@ -1,15 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkdcds7al47s1"]
+[gd_scene load_steps=11 format=3 uid="uid://dkdcds7al47s1"]
 
 [ext_resource type="FontFile" uid="uid://cs7t38wyti327" path="res://fonts/PixelOperator8-Bold.ttf" id="1_4f4bp"]
 [ext_resource type="FontFile" uid="uid://cr8oj8w23gswc" path="res://fonts/PixelOperator8.ttf" id="2_u5jg3"]
 [ext_resource type="Script" uid="uid://bc1wiin53wqkl" path="res://Scripts/button_back.gd" id="3_k1vhr"]
 [ext_resource type="Texture2D" uid="uid://bs4t3svxssdke" path="res://Assets/Graphics/Lupo/Desert_Alt.png" id="4_u5jg3"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_fhe3q"]
-font_size = 8
-font_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5jg3"]
 
-[node name="EndScreen" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_k1vhr"]
+font_size = 8
+font_color = Color(1, 0.94902, 0, 1)
+
+[sub_resource type="Theme" id="Theme_6474r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6474r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k1vhr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c28kj"]
+
+[node name="EndScreenNight" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
 z_index = 1
@@ -25,11 +35,12 @@ offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 0.94902, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_4f4bp")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u5jg3")
 text = "You win!
 Thank you for playing!"
-label_settings = SubResource("LabelSettings_fhe3q")
+label_settings = SubResource("LabelSettings_k1vhr")
 horizontal_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -46,8 +57,14 @@ offset_right = 51.5
 offset_bottom = 42.0
 grow_horizontal = 2
 size_flags_horizontal = 4
+theme = SubResource("Theme_6474r")
+theme_override_colors/font_hover_color = Color(0.94902, 0.627451, 0.439216, 1)
+theme_override_colors/font_color = Color(1, 0.94902, 0, 1)
 theme_override_fonts/font = ExtResource("2_u5jg3")
 theme_override_font_sizes/font_size = 8
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6474r")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_k1vhr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_c28kj")
 text = "Back to Title"
 script = ExtResource("3_k1vhr")
 
