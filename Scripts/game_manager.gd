@@ -1,6 +1,6 @@
 extends Node
 
-const MAX_LEVEL = 9
+const MAX_LEVEL = 12
 
 var game_running = true
 var level_count = 0
@@ -29,7 +29,7 @@ func next_level():
 	level_count += 1
 	var next_level
 	if level_count > MAX_LEVEL:
-		next_level = load("res://Scenes/EndScreen.tscn")
+		next_level = load("res://Scenes/EndScreenNight.tscn")
 	else:
 		next_level = load("res://Scenes/level_" + str(level_count) + ".tscn")
 	var instance = next_level.instantiate()
@@ -58,7 +58,7 @@ func _on_cleared_timer_timeout() -> void:
 	level_count += 1
 	var next_level
 	if level_count > MAX_LEVEL:
-		next_level = load("res://Scenes/EndScreen.tscn")
+		next_level = load("res://Scenes/EndScreenNight.tscn")
 	else:
 		next_level = load("res://Scenes/level_" + str(level_count) + ".tscn")
 	var instance = next_level.instantiate()
@@ -73,7 +73,7 @@ func reload_game():
 	var next_level = load("res://Scenes/level_0.tscn")
 	var instance = next_level.instantiate()
 	get_node("/root/Game").add_child(instance)
-	get_node("/root/Game/EndScreen").queue_free()
+	get_node("/root/Game/EndScreenNight").queue_free()
 	level_count = 0
 	reset_mask()
 	

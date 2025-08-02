@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=4 uid="uid://cmrn0qjf8vr4d"]
+
+[ext_resource type="Texture2D" uid="uid://bip2ql4i63ry" path="res://Assets/Graphics/TilesNew.png" id="1_nmf0n"]
+[ext_resource type="PackedScene" uid="uid://2ih86el6wf3t" path="res://Scenes/meat.tscn" id="2_gps66"]
+[ext_resource type="Script" uid="uid://dh1yyily3rx3k" path="res://Scripts/meat.gd" id="3_jiuya"]
+[ext_resource type="PackedScene" uid="uid://scukd2p4o2dt" path="res://Scenes/player_new.tscn" id="4_50k2l"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nmf0n"]
+texture = ExtResource("1_nmf0n")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_i04qs"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_nmf0n")
+
+[node name="Level11" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -1)
+zoom = Vector2(4.1, 4.1)
+
+[node name="Tiles_Foreground" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD3/wQAAAAAAAAAAAD4/wQAAAAAAAAAAAD5/wQAAAAAAAAAAAD6/wQAAAAAAAAAAAD7/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD9/wQAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD4////AAAAAAAAAAD5////AAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAACAP3/AAAAAAAAAADx/wQAAAAAAAAAAADy/wQAAAAAAAAAAADz/wQAAAAAAAAAAAD0/wQAAAAAAAAAAAD1/wQAAAAAAAAAAAD2/wQAAAAAAAAAAAAJAAQAAAAAAAAAAADw/wQAAAAAAAAAAAAAAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAPAAQAAAAAAAAAAAARAAEAAAAAAAAAAAASAP7/AAAAAAAAAAASAAEAAAAAAAAAAAATAP7/AAAAAAAAAAAUAAQAAAAAAAAAAAAVAAAAAAAAAAAAAAAVAAQAAAAAAAAAAAAXAP3/AAAAAAAAAAAYAP3/AAAAAAAAAAAYAAEAAAAAAAAAAAAZAAEAAAAAAAAAAAAaAAEAAAAAAAAAAAAaAAQAAAAAAAAAAAD3//r/AAAAAAAAAAD4//r/AAAAAAAAAAD6//r/AAAAAAAAAAD8//r/AAAAAAAAAAD9//n/AAAAAAAAAAD9//r/AAAAAAAAAAD///f/AAAAAAAAAAAAAPT/AAAAAAAAAAAAAPf/AAAAAAAAAAABAPT/AAAAAAAAAAACAPr/AAAAAAAAAAADAPb/AAAAAAAAAAADAPr/AAAAAAAAAAAFAPP/AAAAAAAAAAAGAPP/AAAAAAAAAAAGAPf/AAAAAAAAAAAHAPf/AAAAAAAAAAAIAPf/AAAAAAAAAAAIAPr/AAAAAAAAAAAJAPr/AAAAAAAAAAAKAPX/AAAAAAAAAAAKAPr/AAAAAAAAAAALAPX/AAAAAAAAAAALAPr/AAAAAAAAAAAMAPr/AAAAAAAAAAANAPr/AAAAAAAAAAAOAPj/AAAAAAAAAAAOAPr/AAAAAAAAAAAPAPj/AAAAAAAAAAAPAPr/AAAAAAAAAAAQAPr/AAAAAAAAAAARAPr/AAAAAAAAAAASAPP/AAAAAAAAAAASAPr/AAAAAAAAAAATAPP/AAAAAAAAAAATAPr/AAAAAAAAAAAUAPP/AAAAAAAAAAAUAPr/AAAAAAAAAAAVAPj/AAAAAAAAAAAVAPr/AAAAAAAAAAAWAPj/AAAAAAAAAAAWAPr/AAAAAAAAAAAXAPr/AAAAAAAAAAAYAPr/AAAAAAAAAAAZAPr/AAAAAAAAAAAbAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAdAAQAAAAAAAAAAAAeAAQAAAAAAAAAAAAfAAQAAAAAAAAAAAAgAAQAAAAAAAAAAAALAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAMAAAAAAAAAAAAPAAMAAAAAAAAAAAANAP//AAAAAAAAAAAMAP//AAAAAAAAAAALAP//AAAAAAAAAAD8//n/AAAAAAAAAAD5//r/AAAAAAAAAAD7//r/AAAAAAAAAAD1//r/AAAAAAAAAAD2//r/AAAAAAAAAAD7//X/AAAAAAAAAAD6//X/AAAAAAAAAAD5//X/AAAAAAAAAAD8//3/AAAAAAAAAAAOAPP/AAAAAAAAAAAbAPr/AAAAAAAAAAAcAPr/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_i04qs")
+
+[node name="Meat" parent="." instance=ExtResource("2_gps66")]
+position = Vector2(24, -56)
+script = ExtResource("3_jiuya")
+
+[node name="Meat2" parent="." instance=ExtResource("2_gps66")]
+position = Vector2(312, -216)
+script = ExtResource("3_jiuya")
+
+[node name="PlayerNew" parent="." instance=ExtResource("4_50k2l")]
+position = Vector2(-102, 56)
+
+[node name="CoyoteTimer" type="Timer" parent="PlayerNew"]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="body_entered" from="Meat" to="Meat" method="_on_body_entered"]
+[connection signal="body_entered" from="Meat2" to="Meat2" method="_on_body_entered"]
+[connection signal="timeout" from="PlayerNew/CoyoteTimer" to="PlayerNew" method="_on_coyote_timer_timeout"]

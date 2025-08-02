@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkdcds7al47s1"]
+
+[ext_resource type="FontFile" uid="uid://cs7t38wyti327" path="res://fonts/PixelOperator8-Bold.ttf" id="1_4f4bp"]
+[ext_resource type="FontFile" uid="uid://cr8oj8w23gswc" path="res://fonts/PixelOperator8.ttf" id="2_u5jg3"]
+[ext_resource type="Script" uid="uid://bc1wiin53wqkl" path="res://Scripts/button_back.gd" id="3_k1vhr"]
+[ext_resource type="Texture2D" uid="uid://bs4t3svxssdke" path="res://Assets/Graphics/Lupo/Desert_Alt.png" id="4_u5jg3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fhe3q"]
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[node name="EndScreen" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -22.0
+offset_right = 116.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.94902, 0, 1)
+theme_override_fonts/font = ExtResource("1_4f4bp")
+text = "You win!
+Thank you for playing!"
+label_settings = SubResource("LabelSettings_fhe3q")
+horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="Button_Back" type="Button" parent="."]
+z_index = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -51.5
+offset_top = 11.0
+offset_right = 51.5
+offset_bottom = 42.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_u5jg3")
+theme_override_font_sizes/font_size = 8
+text = "Back to Title"
+script = ExtResource("3_k1vhr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_u5jg3")
+
+[connection signal="pressed" from="Button_Back" to="Button_Back" method="_on_pressed"]
