@@ -5,12 +5,12 @@ It can be played here: https://cyrotronic.itch.io/lupo
 
 <img src="https://github.com/Cyronio/Lupo/blob/main/Screenshots/Lupo2.jpg">
 
-# Controls
+## Controls
 Arrow Keys or WASD for moving
 
 Space or Return for jumping
 
-# Credits
+## Credits
 
 Music: "Green & Gray" by Mega Pixel Music Lab (https://opengameart.org/content/green-gray) [CC-BY 3.0]
 
